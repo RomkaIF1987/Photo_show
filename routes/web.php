@@ -12,15 +12,18 @@
 */
 
 Route::get('/', 'HomePageController@index')->name('home.page');
-Route::get('/contact' , 'HomePageController@contact')->name('contact');
-Route::get('/contact/email' , 'HomePageController@getEmail')->name('getEmail');
-Route::post('/contact/email' , 'HomePageController@postEmail')->name('postEmail');
-
-Route::resource('albums', 'AlbumController');
-
-Route::get('/photos/create/{album}', 'PhotoController@create')->name('photos.create');
-Route::post('/photos/store', 'PhotoController@store')->name('photos.store');
-Route::delete('/photos/{photo}', 'PhotoController@destroy')->name('photos.destroy');
+Route::get('/contact', 'HomePageController@contact')->name('contact');
+Route::get('/contact/email', 'HomePageController@getEmail')->name('getEmail');
+Route::post('/contact/email', 'HomePageController@postEmail')->name('postEmail');
+Route::get('/projects/{album}', 'HomePageController@projects')->name('projects');
 
 Auth::routes();
+
+Route::middleware('auth')->group(function () {
+    Route::resource('admin/albums', 'AlbumController');
+    Route::resource('admin/photos', 'PhotoController');
+    Route::resource('admin/comment', 'CommentController');
+
+    Route::get('/admin', 'AdminController@index')->name('admin.homePage');
+});
 

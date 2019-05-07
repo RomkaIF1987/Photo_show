@@ -8,7 +8,7 @@ class Photo extends Model
 {
     protected $guarded = [];
 
-    public function albums()
+    public function album()
     {
         return $this->belongsTo(Album::class);
     }

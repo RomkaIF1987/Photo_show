@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.old_app')
 
 @section('content')
     <h2>Edit ALBUM - {{$album->name}}</h2>

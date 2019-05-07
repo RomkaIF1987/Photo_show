@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.old_app')
 
 @section('content')
     <h2 class="button">ДОДАТИ НОВУ ФОТОГРАФІЮ</h2>

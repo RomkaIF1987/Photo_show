@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PhotoController extends Controller
 {
@@ -23,10 +24,10 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($album_id)
+    public function create()
     {
-        return view('photos.create', [
-            'album_id' => $album_id,
+        return view('adminPanel.photoCreate', [
+            'albums' => Album::all(),
             'photo' => new Photo()
         ]);
     }
@@ -34,50 +35,47 @@ class PhotoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Album $album, Request $request)
+    public function store(Request $request)
     {
-        $this->validate($request, [
+        $params = $this->validate($request, [
             'album_id' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'photo' => 'image|max:1999'
+            'image' => 'image|max:1999'
         ]);
 
         // get file name with Extension
-        $imageFileNameWithExt = $request->file('photo')->getClientOriginalName();
+        $imageFileNameWithExt = $request->file('image')->getClientOriginalName();
 
         // get file name without Extension
         $imageFileName = pathinfo($imageFileNameWithExt, PATHINFO_FILENAME);
 
         // get Extension
-        $extension = $request->file('photo')->getClientOriginalExtension();
+        $extension = $request->file('image')->getClientOriginalExtension();
 
         // create new file name
-        $fileNameToStore = $imageFileName.'_'.time().'.'.$extension;
+        $fileNameToStore = $imageFileName . '_' . time() . '.' . $extension;
 
         //upload image
-        $path = $request->file('photo')->storeAs('public/photo', $fileNameToStore);
+        $request->file('image')->storeAs('public/photo', $fileNameToStore);
 
-        // create new Photo
-        $photo = Photo::create([
-            'album_id' => $request->input('album_id'),
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'size' => $request->file('photo')->getClientSize(),
-            'photo' => $fileNameToStore
-        ]);
+        $params['image'] = $fileNameToStore;
 
-        return redirect('/albums/'.$request->input('album_id'));
+        // create new Image
+        Photo::create($params);
+
+        return redirect()->route('admin.homePage');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return void
      */
     public function show($id)
     {
@@ -87,34 +85,72 @@ class PhotoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Photo $photo
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Photo $photo)
     {
-        //
+        return view('adminPanel.photoEdit', [
+            'photo' => $photo,
+            'albums' => Album::all()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @param Photo $photo
+     * @return void
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Photo $photo)
     {
-        //
+        $params = $this->validate($request, [
+            'album_id' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|max:1999'
+        ]);
+
+        if ($request->hasFile('image')) {
+
+            File::delete("storage/photo/$photo->image");
+
+            // get file name with Extension
+            $imageFileNameWithExt = $request->file('image')->getClientOriginalName();
+
+            // get file name without Extension
+            $imageFileName = pathinfo($imageFileNameWithExt, PATHINFO_FILENAME);
+
+            // get Extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+
+            // create new file name
+            $fileNameToStore = $imageFileName . '_' . time() . '.' . $extension;
+
+            //upload image
+            $request->file('image')->storeAs('public/photo', $fileNameToStore);
+
+            $params['image'] = $fileNameToStore;
+        }
+
+        $photo->update($params);
+
+        return redirect()->route('admin.homePage');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Photo $photo
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Photo $photo)
     {
+        File::delete("storage/photo/$photo->image");
+
         $photo->delete();
 
         return back();

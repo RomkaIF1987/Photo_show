@@ -30,7 +30,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('albums.create', [
+        return view('adminPanel.albumCreate', [
             'album' => new Album()
         ]);
     }
@@ -40,6 +40,7 @@ class AlbumController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -61,20 +62,21 @@ class AlbumController extends Controller
         $fileNameToStore = $imageFileName . '_' . time() . '.' . $extension;
 
         //upload image
-        $path = $request->file('cover_image')->storeAs('public/album_covers', $fileNameToStore);
+        $request->file('cover_image')->storeAs('public/album_covers', $fileNameToStore);
 
         $params['cover_image'] = $fileNameToStore;
 
         // create new Album
         $album = Album::create($params);
 
-        return redirect()->route('albums.index');
+        return redirect()->route('admin.homePage');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param Album $album
+     * @param Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function show(Album $album, Photo $photo)
@@ -88,12 +90,12 @@ class AlbumController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param Album $album
      * @return \Illuminate\Http\Response
      */
     public function edit(Album $album)
     {
-        return view('albums.edit', [
+        return view('adminPanel.albumEdit', [
             'album' => $album
         ]);
     }
@@ -102,8 +104,9 @@ class AlbumController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param Album $album
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, Album $album)
     {
@@ -113,15 +116,10 @@ class AlbumController extends Controller
             'cover_image' => 'image|max:1999'
         ]);
 
-        $fileNameExist = "public/album_covers/$album->cover_image";
+        if ($request->hasFile('cover_image')) {
 
-dd(Storage::exists($fileNameExist));
-        $exist = file_exists("$fileNameExist");
-        dd($exist);
-        if (file_exists("$fileNameExist")) {
-            return $params;
-        }
-        else {
+            File::delete("storage/album_covers/$album->cover_image");
+
             // get file name with Extension
             $imageFileNameWithExt = $request->file('cover_image')->getClientOriginalName();
 
@@ -141,19 +139,20 @@ dd(Storage::exists($fileNameExist));
 
             $params['cover_image'] = $fileNameToStore;
 
-            return $params;
+
         }
 
         $album->update($params);
 
-        return redirect()->route('albums.index');
+        return redirect()->route('admin.homePage');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param Album $album
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Album $album)
     {

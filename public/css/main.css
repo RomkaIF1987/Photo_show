@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6, address, blockquote, dl, fieldset, ol, p, table, ul {
 
 #content ul li {
     padding-left: 15px;
-    background: url("../design/ul.gif") 0 4px no-repeat;
+    background: url("../storage/design/ul.gif") 0 4px no-repeat;
 }
 
 #content ul ul {
@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6, address, blockquote, dl, fieldset, ol, p, table, ul {
 
 #content ul ul li {
     padding-left: 15px;
-    background: url("../design/ul-ul.gif") 0 4px no-repeat;
+    background: url("../storage/design/ul-ul.gif") 0 4px no-repeat;
 }
 
 #content ol {
@@ -166,12 +166,12 @@ LAYOUT
 
 #main {
     min-width: 980px;
-    width: expression(document.body.clientWidth < 980? "980px" : "auto" );
+    width: expression(document.body.clientWidth < 980 ? "980px" : "auto" );
 }
 
 #tray {
     padding: 12px 15px;
-    background: url("../design/tray.gif") 0 0 repeat-x;
+    background: url("../storage/design/tray.gif") 0 0 repeat-x;
     font: 85%/1.2 "tahoma", sans-serif;
 }
 
@@ -185,7 +185,7 @@ LAYOUT
 
 #tray #logout {
     padding-left: 18px;
-    background: url("../design/tray-logout.gif") 0 50% no-repeat;
+    background: url("../storage/design/tray-logout.gif") 0 50% no-repeat;
     text-transform: uppercase;
 }
 
@@ -203,7 +203,7 @@ LAYOUT
 
 #menu {
     padding: 15px 15px 13px 15px;
-    background: url("../design/menu.gif") 0 0 repeat-x;
+    background: url("../storage/design/menu.gif") 0 0 repeat-x;
 }
 
 #menu ul {
@@ -222,7 +222,7 @@ LAYOUT
     float: left;
     margin-right: 5px;
     padding-left: 5px;
-    background: url("../design/menu-left.gif") 0 0 no-repeat;
+    background: url("../storage/design/menu-left.gif") 0 0 no-repeat;
     text-decoration: none;
     cursor: pointer;
 }
@@ -231,15 +231,15 @@ LAYOUT
     float: left;
     display: block;
     padding: 7px 15px 9px 8px;
-    background: url("../design/menu-right.gif") 100% 0 no-repeat;
+    background: url("../storage/design/menu-right.gif") 100% 0 no-repeat;
 }
 
 #menu ul li a:hover, #menu ul li#menu-active a {
-    background: url("../design/menu-left.gif") 0 -35px no-repeat;
+    background: url("../storage/design/menu-left.gif") 0 -35px no-repeat;
 }
 
 #menu ul li a:hover span, #menu ul li#menu-active a span {
-    background: url("../design/menu-right.gif") 100% -35px no-repeat;
+    background: url("../storage/design/menu-right.gif") 100% -35px no-repeat;
 }
 
 #menu ul li#menu-active a {
@@ -254,7 +254,7 @@ LAYOUT
 #footer {
     clear: both;
     padding: 15px;
-    background: url("../design/separator.gif") 0 0 repeat-x;
+    background: url("../storage/design/separator.gif") 0 0 repeat-x;
     font: 85%/1.2 "tahoma", sans-serif;
 }
 
@@ -309,7 +309,7 @@ OTHERS
     padding-left: 27px;
     height: 37px;
     overflow: hidden;
-    background: url("../design/btn-create-left.gif") 0 0 no-repeat;
+    background: url("../storage/design/btn-create-left.gif") 0 0 no-repeat;
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
@@ -320,7 +320,7 @@ OTHERS
     display: block;
     width: 163px;
     padding: 8px 0 10px 10px;
-    background: url("../design/btn-create-right.gif") -2px 0 no-repeat;
+    background: url("../storage/design/btn-create-right.gif") -2px 0 no-repeat;
 }
 
 #aside #btn-create a:hover {
@@ -347,7 +347,7 @@ OTHERS
 #aside ul li#submenu-active a {
     width: 198px;
     border: 0;
-    background: url("../design/submenu-active.gif") 100% 50% no-repeat;
+    background: url("../storage/design/submenu-active.gif") 100% 50% no-repeat;
     font-weight: bold;
     z-index: 999;
 }
@@ -360,7 +360,7 @@ OTHERS
 #aside ul ul li a, #aside ul li#submenu-active ul li a {
     width: 170px;
     padding: 5px 15px 5px 30px;
-    background: url("../design/submenu-sub.gif") 15px 7px no-repeat;
+    background: url("../storage/design/submenu-sub.gif") 15px 7px no-repeat;
     font: 85%/1.2 "tahoma", sans-serif;
     font-weight: normal;
 }
@@ -368,7 +368,7 @@ OTHERS
 #content h1 {
     margin: 0;
     padding: 10px 15px;
-    background: url("../design/content-h1.gif") 0 0 repeat-x;
+    background: url("../storage/design/content-h1.gif") 0 0 repeat-x;
     letter-spacing: -1px;
 }
 
@@ -406,7 +406,7 @@ OTHERS
     float: left;
     margin-right: 3px;
     padding-left: 4px;
-    background: url("../design/tabs-l.gif") 0 -100px no-repeat;
+    background: url("../storage/design/tabs-l.gif") 0 -100px no-repeat;
     text-decoration: none;
 }
 
@@ -414,7 +414,7 @@ OTHERS
     float: left;
     display: block;
     padding: 8px 15px 6px 11px;
-    background: url("../design/tabs-r.gif") 100% -100px no-repeat;
+    background: url("../storage/design/tabs-r.gif") 100% -100px no-repeat;
 }
 
 #content .tabs a:hover, .tabs a:hover span {
@@ -422,12 +422,12 @@ OTHERS
 }
 
 #content .tabs .ui-tabs-selected a {
-    background: url("../design/tabs-l.gif") 0 0 no-repeat;
+    background: url("../storage/design/tabs-l.gif") 0 0 no-repeat;
     font-weight: bold;
 }
 
 #content .tabs .ui-tabs-selected a span {
-    background: url("../design/tabs-r.gif") 100% 0 no-repeat;
+    background: url("../storage/design/tabs-r.gif") 100% 0 no-repeat;
 }
 
 #content .tabs .ui-tabs-selected a:hover, #content .tabs .ui-tabs-selected a:hover span {
@@ -459,24 +459,23 @@ OTHERS
 }
 
 .msg {
-    padding: 10px;
-    padding-left: 35px;
+    padding: 10px 10px 10px 35px;
 }
 
 .msg.warning {
-    background: url("../design/ico-warning.gif") 10px 50% no-repeat;
+    background: url("../storage/design/ico-warning.gif") 10px 50% no-repeat;
 }
 
 .msg.info {
-    background: url("../design/ico-info.gif") 10px 50% no-repeat;
+    background: url("../storage/design/ico-info.gif") 10px 50% no-repeat;
 }
 
 .msg.done {
-    background: url("../design/ico-done.gif") 10px 50% no-repeat;
+    background: url("../storage/design/ico-done.gif") 10px 50% no-repeat;
 }
 
 .msg.error {
-    background: url("../design/ico-delete.gif") 10px 50% no-repeat;
+    background: url("../storage/design/ico-delete.gif") 10px 50% no-repeat;
 }
 
 /* =============================================================================

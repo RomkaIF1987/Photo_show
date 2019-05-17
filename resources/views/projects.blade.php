@@ -20,7 +20,7 @@
             <div class="row">
                 @foreach($album->photos as $photo)
                     <div class="col-lg-4 col-md-6 mb-4 project-entry">
-                        <a href="#" class="d-block figure">
+                        <a href="/storage/photo/{{$photo->image}}" data-lightbox="mygallery" class="d-block figure">
                             <img src="/storage/photo/{{$photo->image}}" alt="Image" class="img-fluid">
                         </a>
                         <h3 class="mb-0"><a href="#">{{$photo->title}}</a></h3>
@@ -30,5 +30,7 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="{{asset('js/lightbox-plus-jquery.min.js')}}"></script>
 
 @endsection

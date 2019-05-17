@@ -47,7 +47,8 @@ class AlbumController extends Controller
         $params = $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
-            'cover_image' => 'image|max:1999'
+            'cover_image' => 'image|max:1999',
+            'icon_image' => 'image|max:1999'
         ]);
         // get file name with Extension
         $imageFileNameWithExt = $request->file('cover_image')->getClientOriginalName();

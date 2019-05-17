@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Comment;
 use App\Photo;
+use App\Question;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,8 @@ class AdminController extends Controller
         return view('adminPanel.admin', [
             'albums' => Album::all(),
             'photos' => Photo::all(),
-            'comments' => Comment::all()
+            'comments' => Comment::all(),
+            'questions' => Question::all()
         ]);
     }
 

@@ -51,6 +51,7 @@
             <li><a href="{{route('albums.create')}}"><span>Додати альбом</span></a></li>
             <li><a href="{{route('photos.create')}}"><span>Додати фотографію</span></a></li>
             <li><a href="{{route('comment.create')}}"><span>Додати відгук</span></a></li>
+            <li><a href="{{route('question.create')}}"><span>Додати питання</span></a></li>
             <li><a href="#"><span>Додати новину</span></a></li>
         </ul>
     </div>

@@ -76,24 +76,47 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param Comment $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comment $comment)
     {
-        //
+        return view('comments.edit', [
+            'comment' => $comment
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param CommentRequest $request
+     * @param Comment $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CommentRequest $request, Comment $comment)
     {
-        //
+        $params = $request->validated();
+
+        // get file name with Extension
+        $imageFileNameWithExt = $request->file('image')->getClientOriginalName();
+
+        // get file name without Extension
+        $imageFileName = pathinfo($imageFileNameWithExt, PATHINFO_FILENAME);
+
+        // get Extension
+        $extension = $request->file('image')->getClientOriginalExtension();
+
+        // create new file name
+        $fileNameToStore = $imageFileName . '_' . time() . '.' . $extension;
+
+        //upload image
+        $request->file('image')->storeAs('public/images', $fileNameToStore);
+
+        $params['image'] = $fileNameToStore;
+
+        $comment->update($params);
+
+        return redirect()->route('admin.homePage');
     }
 
     /**

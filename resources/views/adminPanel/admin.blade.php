@@ -15,7 +15,8 @@
                     <li><a href="#tab01"><span>Альбоми</span></a></li>
                     <li><a href="#tab02"><span>Фотографії</span></a></li>
                     <li><a href="#tab03"><span>Відгуки</span></a></li>
-                    <li><a href="#tab04"><span>Новини</span></a></li>
+                    <li><a href="#tab04"><span>Питання</span></a></li>
+                    <li><a href="#tab05"><span>Новини</span></a></li>
                 </ul>
             </div>
             <!-- /tabs -->
@@ -37,10 +38,17 @@
                             <td><img width="100px" alt="Меблі" src="/storage/album_covers/{{$album->cover_image}}"></td>
                             <td>{{$album->created_at}}</td>
                             <td>{{$album->updated_at}}</td>
-                            <td>
+                            <td style="display: flex">
                                 <div>
-                                    <a href="{{route('albums.edit', ['album' => $album->id])}}"
-                                       class="input-submit">Редагувати</a></div>
+                                    <a href="{{route('albums.edit', ['album' => $album->id])}}">
+                                        <button style="margin-right: 5px">Редагувати</button>
+                                    </a></div>
+                                <form action="{{route('albums.destroy', ['album' => $album->id])}}"
+                                      method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Видалити</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -91,7 +99,11 @@
                             <td>{{$comment->name}}</td>
                             <td>{{$comment->description}}</td>
                             <td><img height="100px" src="storage/images/{{$comment->image}}"></td>
-                            <td>#</td>
+                            <td>
+                                <div>
+                                    <a href="{{route('comment.edit', ['comment' => $comment->id])}}"
+                                       class="input-submit">Редагувати</a></div>
+                            </td>
                         </tr>
                     @endforeach
                 </table>
@@ -99,6 +111,35 @@
             <!-- /tab03 -->
             <!-- Tab04 -->
             <div id="tab04">
+                <table>
+                    <tr>
+                        <th>Питання</th>
+                        <th>Відповідь</th>
+                        <th>Дії</th>
+                    </tr>
+                    @foreach($questions as $question)
+                        <tr>
+                            <td>{{$question->body}}</td>
+                            <td>{{$question->answer}}</td>
+                            <td style="display: flex">
+                                <div>
+                                    <a href="{{route('question.edit', ['$question' => $question->id])}}">
+                                        <button style="margin-right: 5px">Редагувати</button>
+                                    </a></div>
+                                <form action="{{route('question.destroy', ['$question' => $question->id])}}"
+                                      method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Видалити</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+            <!-- /tab04 -->
+            <!-- Tab05 -->
+            <div id="tab05">
                 <table>
                     <tr>
                         <th>Lorem ipsum</th>

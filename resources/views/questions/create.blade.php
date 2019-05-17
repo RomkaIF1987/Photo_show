@@ -1,7 +1,7 @@
 @extends('adminPanel.layouts.app')
 
 @section('content')
-    <form action="{{route('albums.update', $album->id)}}" method="POST" enctype='multipart/form-data'
+    <form action="{{route('question.store')}}" method="POST"
           class="was-validated button">
     @csrf
     <!-- /header -->
@@ -12,11 +12,9 @@
             <!-- Content (Right Column) -->
             <div id="content" class="box">
                 <!-- Form -->
-                <h3 class="tit">Редагувати альбом</h3>
+                <h3 class="tit">Додати питання</h3>
 
-                @method('PATCH')
-
-                @include('albums.partials.albumForm')
+                @include('questions.partials.questionForm')
 
             </div>
             <!-- /content -->

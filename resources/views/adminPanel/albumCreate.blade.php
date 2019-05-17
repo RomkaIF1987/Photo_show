@@ -14,7 +14,7 @@
                 <!-- Form -->
                 <h3 class="tit">Додати альбом</h3>
 
-                @include('adminPanel.partials.albumForm')
+                @include('albums.partials.albumForm')
 
             </div>
             <!-- /content -->

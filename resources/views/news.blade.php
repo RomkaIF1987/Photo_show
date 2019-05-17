@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@yield('title', 'СП ТзОВ "ХІТА"')</title>
+    <title>Interior Design &mdash; Colorlib Website Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900">
-    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../css/magnific-popup.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
 
-    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../css/aos.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="../css/lightbox.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/cocoen.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -43,7 +42,7 @@
                 <div class="row align-items-center">
                     <div class="col-6">
                         <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>
-                        <a href="https://www.facebook.com/XITA95/" class="p-2 pl-0"><span class="icon-facebook"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
                         <a href="#" class="p-2 pl-0"><span class="icon-linkedin"></span></a>
                         <a href="#" class="p-2 pl-0"><span class="icon-instagram"></span></a>
                     </div>
@@ -51,11 +50,11 @@
                         <div class="d-flex ml-auto">
                             <a href="#" class="d-flex align-items-center ml-auto mr-4">
                                 <span class="icon-phone mr-2"></span>
-                                <span class="d-none d-md-inline-block">+38 099 095 1697</span>
+                                <span class="d-none d-md-inline-block">youremail@domain.com</span>
                             </a>
                             <a href="#" class="d-flex align-items-center">
                                 <span class="icon-envelope mr-2"></span>
-                                <span class="d-none d-md-inline-block">hita@gmail.com</span>
+                                <span class="d-none d-md-inline-block">+1 291 2830 302</span>
                             </a>
                         </div>
                     </div>
@@ -66,38 +65,44 @@
             <div class="container py-1">
                 <div class="row align-items-center">
                     <div class="col-2">
-                        <h1 class="mb-0 site-logo"><a href="index.blade.php"></a></h1>
+                        <h1 class="mb-0 site-logo"><a href="index.blade.php">Interior</a></h1>
                     </div>
                     <div class="col-10">
                         <nav class="site-navigation text-right" role="navigation">
                             <div class="container">
                                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
                                                                                               class="site-menu-toggle js-menu-toggle text-white"><span
-                                                class="icon-menu h3"></span></a></div>
+                                        class="icon-menu h3"></span></a></div>
 
                                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                    <li class="has-children active">
-                                        <a href="{{route('home.page')}}">Головна</a>
-                                        <ul class="dropdown arrow-top">
-                                            <li><a href="#">Чому ми?</a></li>
-                                            <li><a href="#">Відгуки клієнтів</a></li>
-                                            <li><a href="#">Наші пропозиції</a></li>
-                                            <li><a href="#">Новини</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="{{route('about')}}">Про нас</a></li>
                                     <li class="has-children">
-                                        <a href="projects.blade.php">Проекти</a>
+                                        <a href="index.blade.php">Home</a>
                                         <ul class="dropdown arrow-top">
-                                            <li><a href="#">Меблі</a></li>
-                                            <li><a href="#">Двері</a></li>
-                                            <li><a href="#">Вікна</a></li>
-                                            <li><a href="#">Інше</a></li>
+                                            <li><a href="#">Menu One</a></li>
+                                            <li><a href="#">Menu Two</a></li>
+                                            <li><a href="#">Menu Three</a></li>
+                                            <li class="has-children">
+                                                <a href="#">Sub Menu</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="#">Menu One</a></li>
+                                                    <li><a href="#">Menu Two</a></li>
+                                                    <li><a href="#">Menu Three</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li><a href="{{route('news')}}">Новини</a></li>
-                                    <li><a href="{{route('services')}}">Сервіси</a></li>
-                                    <li><a href="{{route('contact')}}">Контакти</a></li>
+                                    <li><a href="about.blade.php">About Us</a></li>
+                                    <li class="has-children">
+                                        <a href="projects.blade.php">Projects</a>
+                                        <ul class="dropdown arrow-top">
+                                            <li><a href="#">Menu One</a></li>
+                                            <li><a href="#">Menu Two</a></li>
+                                            <li><a href="#">Menu Three</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="active"><a href="news.blade.php">News</a></li>
+                                    <li><a href="services.blade.php">Services</a></li>
+                                    <li><a href="contact.blade.php">Contact</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -107,11 +112,86 @@
         </div>
     </div>
 
+    <div class="site-blocks-cover overlay inner-page" style="background-image: url(images/hero_bg_1.jpg);"
+         data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <span class="sub-text">Updates</span>
+                    <h1>News &amp; Blogs</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    @yield('content')
+    <div class="site-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-4 col-md-6 mb-5 post-entry">
+                    <a href="#" class="d-block figure">
+                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+                    </a>
+                    <span class="text-muted d-block mb-1">23, January 2019</span>
+                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 post-entry">
+                    <a href="#" class="d-block figure">
+                        <img src="images/img_2.jpg" alt="Image" class="img-fluid">
+                    </a>
+                    <span class="text-muted d-block mb-1">23, January 2019</span>
+                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 post-entry">
+                    <a href="#" class="d-block figure">
+                        <img src="images/img_3.jpg" alt="Image" class="img-fluid">
+                    </a>
+                    <span class="text-muted d-block mb-1">23, January 2019</span>
+                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-5 post-entry">
+                    <a href="#" class="d-block figure">
+                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+                    </a>
+                    <span class="text-muted d-block mb-1">23, January 2019</span>
+                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 post-entry">
+                    <a href="#" class="d-block figure">
+                        <img src="images/img_2.jpg" alt="Image" class="img-fluid">
+                    </a>
+                    <span class="text-muted d-block mb-1">23, January 2019</span>
+                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 post-entry">
+                    <a href="#" class="d-block figure">
+                        <img src="images/img_3.jpg" alt="Image" class="img-fluid">
+                    </a>
+                    <span class="text-muted d-block mb-1">23, January 2019</span>
+                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="site-block-27">
+                        <ul>
+                            <li><a href="#">&lt;</a></li>
+                            <li class="active"><span>1</span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&gt;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-    <footer class="site-footer border-top">
+    <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -241,20 +321,19 @@
     </footer>
 </div>
 
-<script src="../js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
-<script src="../js/jquery-migrate-3.0.1.min.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.stellar.min.js"></script>
-<script src="../js/jquery.countdown.min.js"></script>
-<script src="../js/jquery.magnific-popup.min.js"></script>
-<script src="../js/bootstrap-datepicker.min.js"></script>
-<script src="../js/aos.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/cocoen-jquery.min.js"></script>
-<script src="../js/cocoen.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="js/aos.js"></script>
+
+<script src="js/main.js"></script>
 
 </body>
 </html>

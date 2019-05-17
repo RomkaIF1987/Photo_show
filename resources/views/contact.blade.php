@@ -91,7 +91,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.blade.php">About Us</a></li>
                   <li class="has-children">
                     <a href="projects.blade.php">Projects</a>
                     <ul class="dropdown arrow-top">
@@ -100,8 +100,8 @@
                       <li><a href="#">Menu Three</a></li>
                     </ul>
                   </li>
-                  <li><a href="news.html">News</a></li>
-                  <li><a href="services.html">Services</a></li>
+                    <li><a href="news.blade.php">News</a></li>
+                    <li><a href="services.blade.php">Services</a></li>
                   <li class="active"><a href="contact.blade.php">Contact</a></li>
                 </ul>
               </div>

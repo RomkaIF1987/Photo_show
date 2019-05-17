@@ -16,7 +16,7 @@
 
                 @method('PATCH')
 
-                @include('adminPanel.partials.photoForm')
+                @include('photos.partials.photoForm')
 
             </div>
             <!-- /content -->

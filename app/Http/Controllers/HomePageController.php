@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Comment;
 use App\Photo;
+use App\Question;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
-    public function index(Album $album)
+    public function index()
     {
         return view('index', [
-            'album' => $album->id,
-            'comments' => Comment::all()
+            'albums' => Album::all(),
+            'comments' => Comment::all(),
+            'questions' => Question::all()
         ]);
     }
 
@@ -28,6 +30,21 @@ class HomePageController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function news()
+    {
+        return view('news');
+    }
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    public function services()
+    {
+        return view('services');
     }
 
     public function getEmail()

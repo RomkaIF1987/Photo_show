@@ -14,7 +14,7 @@
                 <!-- Form -->
                 <h3 class="tit">Додати фотографію</h3>
 
-                @include('adminPanel.partials.photoForm')
+                @include('photos.partials.photoForm')
 
             </div>
             <!-- /content -->

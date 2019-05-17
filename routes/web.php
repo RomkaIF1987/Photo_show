@@ -16,6 +16,10 @@ Route::get('/contact', 'HomePageController@contact')->name('contact');
 Route::get('/contact/email', 'HomePageController@getEmail')->name('getEmail');
 Route::post('/contact/email', 'HomePageController@postEmail')->name('postEmail');
 Route::get('/projects/{album}', 'HomePageController@projects')->name('projects');
+Route::get('/about', 'HomePageController@about')->name('about');
+Route::get('/news', 'HomePageController@news')->name('news');
+Route::get('/services', 'HomePageController@services')->name('services');
+
 
 Auth::routes();
 
@@ -23,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/albums', 'AlbumController');
     Route::resource('admin/photos', 'PhotoController');
     Route::resource('admin/comment', 'CommentController');
+    Route::resource('admin/question', 'QuestionController');
 
     Route::get('/admin', 'AdminController@index')->name('admin.homePage');
 });

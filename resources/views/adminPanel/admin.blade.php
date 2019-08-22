@@ -142,19 +142,23 @@
             <div id="tab05">
                 <table>
                     <tr>
-                        <th>Lorem ipsum</th>
-                        <th>Lorem ipsum</th>
-                        <th>Lorem ipsum</th>
-                        <th>Lorem ipsum</th>
-                        <th>Lorem ipsum</th>
+                        <th>Назва</th>
+                        <th>Тіло</th>
+                        <th>Фотографія</th>
+                        <th>Дії</th>
                     </tr>
-                    <tr>
-                        <td>Lorem ipsum</td>
-                        <td>Lorem ipsum</td>
-                        <td>Lorem ipsum</td>
-                        <td>Lorem ipsum</td>
-                        <td>Lorem ipsum</td>
-                    </tr>
+                    @foreach($blogs as $blog)
+                        <tr>
+                            <td>{{$blog->title}}</td>
+                            <td>{{$blog->body}}</td>
+                            <td><img height="100px" src="storage/images/{{$blog->image}}"></td>
+                            <td>
+                                <div>
+                                    <a href="{{route('blog.edit', ['blog' => $blog->id])}}"
+                                       class="input-submit">Редагувати</a></div>
+                            </td>
+                        </tr>
+                    @endforeach
                 </table>
             </div>
         </div>

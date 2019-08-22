@@ -22,6 +22,8 @@
             $(".tabs > ul").tabs();
         });
     </script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
 </head>
 <body>
 <div id="main">
@@ -52,7 +54,7 @@
             <li><a href="{{route('photos.create')}}"><span>Додати фотографію</span></a></li>
             <li><a href="{{route('comment.create')}}"><span>Додати відгук</span></a></li>
             <li><a href="{{route('question.create')}}"><span>Додати питання</span></a></li>
-            <li><a href="#"><span>Додати новину</span></a></li>
+            <li><a href="{{route('blog.create')}}"><span>Додати новину</span></a></li>
         </ul>
     </div>
 

@@ -130,18 +130,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <span class="sub-title">News &amp; Update</span>
-                    <h2 class="font-weight-bold text-black mb-5">Our Blog Posts</h2>
+                    <span class="sub-title">НАШ БЛОГ</span>
+                    <h2 class="font-weight-bold text-black mb-5">Новини</h2>
                 </div>
             </div>
             <div class="row mb-5">
+                @foreach($blogs as $blog)
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
-                    <a href="#" class="d-block figure">
-                        <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+                    <a href="{{route('blog.show', ['blog' => $blog->id])}}" class="d-block figure">
+                        <img src="storage/images/{{$blog->image}}" alt="Image" class="img-fluid">
                     </a>
-                    <span class="text-muted d-block mb-2">23, January 2019</span>
-                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
+                    <span class="text-muted d-block mb-2">{{date('M j, Y H:i', strtotime($blog->created_at))}}</span>
+                    <h3><a href="#">{{$blog->title}} </a></h3>
                 </div>
+                @endforeach
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
                     <a href="#" class="d-block figure">
                         <img src="images/img_2.jpg" alt="Image" class="img-fluid">
@@ -160,7 +162,7 @@
             </div>
             <div class="row mt-5 text-center">
                 <div class="col-12">
-                    <p><a href="#" class="btn btn-primary btn-lg rounded-0">View All Posts</a></p>
+                    <p><a href="{{route('blog')}}" class="btn btn-primary btn-lg rounded-0">Переглянути всі записи</a></p>
                 </div>
             </div>
         </div>

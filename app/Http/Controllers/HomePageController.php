@@ -6,6 +6,7 @@ use App\Album;
 use App\Comment;
 use App\Photo;
 use App\Question;
+use App\Blog;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
@@ -15,7 +16,8 @@ class HomePageController extends Controller
         return view('index', [
             'albums' => Album::all(),
             'comments' => Comment::all(),
-            'questions' => Question::all()
+            'questions' => Question::all(),
+            'blogs' => Blog::all()
         ]);
     }
 
@@ -32,9 +34,11 @@ class HomePageController extends Controller
         return view('contact');
     }
 
-    public function news()
+    public function blog()
     {
-        return view('news');
+        return view('blog', [
+            'blogs' => Blog::paginate(3)
+        ]);
     }
 
     public function about()

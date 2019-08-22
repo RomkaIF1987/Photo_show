@@ -100,7 +100,7 @@
                                             <li><a href="#">Menu Three</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="news.blade.php">News</a></li>
+                                    <li><a href="blog.blade.php">News</a></li>
                                     <li><a href="services.blade.php">Services</a></li>
                                     <li><a href="contact.blade.php">Contact</a></li>
                                 </ul>

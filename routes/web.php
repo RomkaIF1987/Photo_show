@@ -19,6 +19,7 @@ Route::get('/projects/{album}', 'HomePageController@projects')->name('projects')
 Route::get('/about', 'HomePageController@about')->name('about');
 Route::get('/blog', 'HomePageController@blog')->name('blog');
 Route::get('/services', 'HomePageController@services')->name('services');
+Route::get('/blog/{blog}', 'HomePageController@blogShow')->name('blogShow');
 
 
 Auth::routes();

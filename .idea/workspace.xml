@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abdc2570-c786-411d-8300-3adf434ac848" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/paginate.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/partials/form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/paginate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/paginate.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index_old.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -136,12 +125,6 @@
       <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="131" />
-    <option name="y" value="79" />
-    <option name="width" value="1159" />
-    <option name="height" value="643" />
-  </component>
   <component name="ProjectId" id="1PjZuIx4g2bTSoa99Q9FJdxlz6Z" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -227,7 +210,7 @@
       <workItem from="1558084096186" duration="10389000" />
       <workItem from="1558946771703" duration="791000" />
       <workItem from="1566389691352" duration="11191000" />
-      <workItem from="1566460751894" duration="976000" />
+      <workItem from="1566460751894" duration="6092000" />
     </task>
     <task id="LOCAL-00001" summary="Add new laravel project Photo show">
       <created>1547588474581</created>
@@ -250,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558090672976</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Blog section">
+      <created>1566461812660</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1566461812660</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -288,7 +278,7 @@
     <MESSAGE value="Add new laravel project Photo show" />
     <MESSAGE value="Change view template&#10;Add new function" />
     <MESSAGE value="Add new options" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add new options" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Add Blog section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Blog section" />
   </component>
 </project>

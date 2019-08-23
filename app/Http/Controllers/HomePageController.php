@@ -8,6 +8,7 @@ use App\Photo;
 use App\Question;
 use App\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class HomePageController extends Controller
 {
@@ -17,7 +18,7 @@ class HomePageController extends Controller
             'albums' => Album::all(),
             'comments' => Comment::all(),
             'questions' => Question::all(),
-            'blogs' => Blog::all()
+            'blogs' => Blog::paginate(3)
         ]);
     }
 
@@ -38,6 +39,13 @@ class HomePageController extends Controller
     {
         return view('blog', [
             'blogs' => Blog::paginate(3)
+        ]);
+    }
+
+    public function blogShow(Blog $blog)
+    {
+        return view('blog.show', [
+            'blog' => $blog
         ]);
     }
 

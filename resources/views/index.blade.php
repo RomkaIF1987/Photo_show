@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="site-block-1">
+    <div class="site-block-1" id="question">
         <div class="container">
             <div class="row">
                 @foreach($albums as $album)
@@ -60,7 +60,7 @@
                                  aria-labelledby="{{$question->aria_labelledby}}"
                                  data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>{{$question->answer}}</p>
+                                    <p>{!!$question->answer!!}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -72,7 +72,7 @@
 
     <div class="container site-section block-13 testimonial-wrap">
 
-        <div class="row">
+        <div class="row" id="comment">
             <div class="col-12 text-center">
                 <span class="sub-title">Щасливі клієнти</span>
                 <h2 class="font-weight-bold text-black mb-5">Відгуки</h2>
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <div class="site-section site-block-3 bg-light">
+    <div class="site-section site-block-3 bg-light" id="albums">
         <div class="row">
             <div class="col-12 text-center">
                 <span class="sub-title">Наші вироби</span>
@@ -126,7 +126,7 @@
         </div>
     </div>
 
-    <div class="site-section">
+    <div class="site-section" id="news">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -136,33 +136,20 @@
             </div>
             <div class="row mb-5">
                 @foreach($blogs as $blog)
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
-                    <a href="{{route('blog.show', ['blog' => $blog->id])}}" class="d-block figure">
-                        <img src="storage/images/{{$blog->image}}" alt="Image" class="img-fluid">
-                    </a>
-                    <span class="text-muted d-block mb-2">{{date('M j, Y H:i', strtotime($blog->created_at))}}</span>
-                    <h3><a href="#">{{$blog->title}} </a></h3>
-                </div>
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
+                        <a href="{{route('blogShow', ['blog' => $blog->id])}}" class="d-block figure">
+                            <img src="storage/images/{{$blog->image}}" alt="Image" class="img-fluid">
+                        </a>
+                        <span
+                            class="text-muted d-block mb-2">{{date('M j, Y H:i', strtotime($blog->created_at))}}</span>
+                        <h3><a href="{{route('blogShow', ['blog' => $blog->id])}}">{{$blog->title}} </a></h3>
+                    </div>
                 @endforeach
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
-                    <a href="#" class="d-block figure">
-                        <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <span class="text-muted d-block mb-2">23, January 2019</span>
-                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
-                    <a href="#" class="d-block figure">
-                        <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <span class="text-muted d-block mb-2">23, January 2019</span>
-                    <h3><a href="#">Architecture is ready to take the world to the next level </a></h3>
-                </div>
-
             </div>
             <div class="row mt-5 text-center">
                 <div class="col-12">
-                    <p><a href="{{route('blog')}}" class="btn btn-primary btn-lg rounded-0">Переглянути всі записи</a></p>
+                    <p><a href="{{route('blog')}}" class="btn btn-primary btn-lg rounded-0">Переглянути всі записи</a>
+                    </p>
                 </div>
             </div>
         </div>

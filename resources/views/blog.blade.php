@@ -19,19 +19,19 @@
             <div class="row mb-5">
                 @foreach($blogs as $blog)
                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 post-entry">
-                        <a href="{{route('blog.show', ['blog' => $blog->id])}}" class="d-block figure">
+                        <a href="{{route('blogShow', ['blog' => $blog->id])}}" class="d-block figure">
                             <img src="storage/images/{{$blog->image}}" alt="Image" class="img-fluid">
                         </a>
                         <span
                             class="text-muted d-block mb-2">{{date('M j, Y H:i', strtotime($blog->created_at))}}</span>
-                        <h3><a href="#">{{$blog->title}} </a></h3>
+                        <h3><a href="{{route('blogShow', ['blog' => $blog->id])}}">{{$blog->title}} </a></h3>
                     </div>
                 @endforeach
             </div>
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    {{$blogs->links()}}
+                    {{$blogs->links('blog.paginate')}}
                 </div>
             </div>
         </div>

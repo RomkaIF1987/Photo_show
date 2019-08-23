@@ -49,11 +49,11 @@
                     </div>
                     <div class="col-6">
                         <div class="d-flex ml-auto">
-                            <a href="#" class="d-flex align-items-center ml-auto mr-4">
+                            <a href="tel:+38 099 095 1697" class="d-flex align-items-center ml-auto mr-4">
                                 <span class="icon-phone mr-2"></span>
                                 <span class="d-none d-md-inline-block">+38 099 095 1697</span>
                             </a>
-                            <a href="#" class="d-flex align-items-center">
+                            <a href="mailto:hita@gmail.com" class="d-flex align-items-center">
                                 <span class="icon-envelope mr-2"></span>
                                 <span class="d-none d-md-inline-block">hita@gmail.com</span>
                             </a>
@@ -79,10 +79,10 @@
                                     <li class="has-children active">
                                         <a href="{{route('home.page')}}">Головна</a>
                                         <ul class="dropdown arrow-top">
-                                            <li><a href="#">Чому ми?</a></li>
-                                            <li><a href="#">Відгуки клієнтів</a></li>
-                                            <li><a href="#">Наші пропозиції</a></li>
-                                            <li><a href="#">Новини</a></li>
+                                            <li><a href="#question">Чому ми?</a></li>
+                                            <li><a href="#comment">Відгуки клієнтів</a></li>
+                                            <li><a href="#albums">Наші пропозиції</a></li>
+                                            <li><a href="#news">Новини</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="{{route('about')}}">Про нас</a></li>

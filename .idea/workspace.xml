@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="abdc2570-c786-411d-8300-3adf434ac848" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/paginate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/paginate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +32,9 @@
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -210,7 +212,9 @@
       <workItem from="1558084096186" duration="10389000" />
       <workItem from="1558946771703" duration="791000" />
       <workItem from="1566389691352" duration="11191000" />
-      <workItem from="1566460751894" duration="6092000" />
+      <workItem from="1566460751894" duration="9404000" />
+      <workItem from="1567505320616" duration="2380000" />
+      <workItem from="1567509246489" duration="2849000" />
     </task>
     <task id="LOCAL-00001" summary="Add new laravel project Photo show">
       <created>1547588474581</created>
@@ -240,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566461812660</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="bugs fixed">
+      <created>1566555707160</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566555707160</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -279,6 +290,7 @@
     <MESSAGE value="Change view template&#10;Add new function" />
     <MESSAGE value="Add new options" />
     <MESSAGE value="Add Blog section" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Blog section" />
+    <MESSAGE value="bugs fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugs fixed" />
   </component>
 </project>

@@ -14,10 +14,13 @@
         </div>
     </div>
 
-    <div class="site-section">
-        <div class="container">
-            {!!$blog->body!!}
+    <div class="container">
+        <div class="row no-gutters align-items-stretch">
+            <div class="col-md-12 col-lg-7 py-5">
+                {!!$blog->body!!}
+            </div>
         </div>
     </div>
+
 
 @endsection

@@ -33,7 +33,7 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(BlogRequest $request)
@@ -65,7 +65,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Blog  $blog
+     * @param \App\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function edit(Blog $blog)
@@ -78,30 +78,32 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Blog  $blog
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function update(BlogRequest $request, Blog $blog)
     {
         $params = $request->validated();
 
-        // get file name with Extension
-        $imageFileNameWithExt = $request->file('image')->getClientOriginalName();
+        if ($request->file('image') != null) {
+            // get file name with Extension
+            $imageFileNameWithExt = $request->file('image')->getClientOriginalName();
 
-        // get file name without Extension
-        $imageFileName = pathinfo($imageFileNameWithExt, PATHINFO_FILENAME);
+            // get file name without Extension
+            $imageFileName = pathinfo($imageFileNameWithExt, PATHINFO_FILENAME);
 
-        // get Extension
-        $extension = $request->file('image')->getClientOriginalExtension();
+            // get Extension
+            $extension = $request->file('image')->getClientOriginalExtension();
 
-        // create new file name
-        $fileNameToStore = $imageFileName . '_' . time() . '.' . $extension;
+            // create new file name
+            $fileNameToStore = $imageFileName . '_' . time() . '.' . $extension;
 
-        //upload image
-        $request->file('image')->storeAs('public/images', $fileNameToStore);
+            //upload image
+            $request->file('image')->storeAs('public/images', $fileNameToStore);
 
-        $params['image'] = $fileNameToStore;
+            $params['image'] = $fileNameToStore;
+        }
 
         $blog->update($params);
 
@@ -111,7 +113,7 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Blog  $blog
+     * @param \App\Blog $blog
      * @return \Illuminate\Http\Response
      */
     public function destroy(Blog $blog)

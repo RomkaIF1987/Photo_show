@@ -25,6 +25,8 @@ class HomePageController extends Controller
     public function projects(Album $album)
     {
         return view('projects', [
+            'albums' => Album::all(),
+            'blogs' => Blog::paginate(3),
             'album' => $album,
             'photos' => Photo::all()
         ]);
@@ -32,41 +34,59 @@ class HomePageController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        return view('contact',[
+            'albums' => Album::all(),
+            'blogs' => Blog::paginate(3),
+        ]);
     }
 
     public function blog()
     {
         return view('blog', [
-            'blogs' => Blog::paginate(3)
+            'blogs' => Blog::paginate(3),
+            'albums' => Album::all(),
         ]);
     }
 
     public function blogShow(Blog $blog)
     {
         return view('blog.show', [
-            'blog' => $blog
+            'blog' => $blog,
+            'albums' => Album::all(),
+            'blogs' => Blog::paginate(3),
         ]);
     }
 
     public function about()
     {
-        return view('about');
+        return view('about', [
+            'albums' => Album::all(),
+            'blogs' => Blog::paginate(3),
+        ]);
     }
 
     public function services()
     {
-        return view('services');
+        return view('services',[
+            'albums' => Album::all(),
+            'blogs' => Blog::paginate(3),
+        ]);
     }
 
     public function getEmail()
     {
-        return view('email');
+        return view('email', [
+            'albums' => Album::all(),
+            'blogs' => Blog::paginate(3),
+        ]);
     }
 
     public function postEmail()
     {
-        return view('email');
+        return view('email',[
+            'albums' => Album::all(),
+            'blogs' => Blog::paginate(3),
+        ]);
     }
 
 }

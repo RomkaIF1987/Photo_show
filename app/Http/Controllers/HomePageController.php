@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use App\Comment;
+use App\Employee;
 use App\Photo;
 use App\Question;
 use App\Blog;
@@ -62,6 +63,7 @@ class HomePageController extends Controller
         return view('about', [
             'albums' => Album::all(),
             'blogs' => Blog::paginate(3),
+            'employees' => Employee::all()
         ]);
     }
 

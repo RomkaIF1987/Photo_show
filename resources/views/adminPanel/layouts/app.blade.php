@@ -58,6 +58,7 @@
             <li><a href="{{route('comment.create')}}"><span>Додати відгук</span></a></li>
             <li><a href="{{route('question.create')}}"><span>Додати питання</span></a></li>
             <li><a href="{{route('blog.create')}}"><span>Додати новину</span></a></li>
+            <li><a href="{{route('employee.create')}}"><span>Додати співробітника</span></a></li>
         </ul>
     </div>
 

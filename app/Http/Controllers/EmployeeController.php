@@ -2,23 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
-use App\Http\Requests\CommentRequest;
+use App\Employee;
+use App\Http\Requests\EmployeeRequest;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
-class CommentController extends Controller
+class EmployeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -26,18 +15,18 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('comments.create', [
-            'comment' => new Comment()
+        return view('employees.create', [
+            'employee' => new Employee()
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param EmployeeRequest $request
      * @return void
      */
-    public function store(CommentRequest $request)
+    public function store(EmployeeRequest $request)
     {
         $params = $request->validated();
 
@@ -58,43 +47,32 @@ class CommentController extends Controller
 
         $params['image'] = $fileNameToStore;
 
-        Comment::create($params);
+        Employee::create($params);
 
         return redirect()->route('admin.homePage');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param Comment $comment
+     * @param Employee $employee
      * @return Response
      */
-    public function edit(Comment $comment)
+    public function edit(Employee $employee)
     {
-        return view('comments.edit', [
-            'comment' => $comment
+        return view('employees.edit', [
+            'employee' => $employee
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param CommentRequest $request
-     * @param Comment $comment
+     * @param EmployeeRequest $request
+     * @param Employee $employee
      * @return Response
      */
-    public function update(CommentRequest $request, Comment $comment)
+    public function update(EmployeeRequest $request, Employee $employee)
     {
         $params = $request->validated();
 
@@ -117,19 +95,9 @@ class CommentController extends Controller
             $params['image'] = $fileNameToStore;
         }
 
-        $comment->update($params);
+        $employee->update($params);
 
         return redirect()->route('admin.homePage');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

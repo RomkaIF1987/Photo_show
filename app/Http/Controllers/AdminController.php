@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Blog;
 use App\Comment;
+use App\Employee;
 use App\Photo;
 use App\Question;
 
@@ -17,8 +18,8 @@ class AdminController extends Controller
             'photos' => Photo::all(),
             'comments' => Comment::all(),
             'questions' => Question::all(),
-            'blogs' => Blog::all()
-
+            'blogs' => Blog::all(),
+            'employees' => Employee::all()
         ]);
     }
 

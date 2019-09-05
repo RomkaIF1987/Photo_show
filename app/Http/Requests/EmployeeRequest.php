@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use phpDocumentor\Reflection\Types\Nullable;
 
-class CommentRequest extends FormRequest
+class EmployeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +26,11 @@ class CommentRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'description' => 'required|string',
-            'image' => 'image|max:1999'
+            'position' => 'required|string',
+            'image' => 'image|max:1999',
+            'facebook' => 'url|nullable',
+            'instagram' => 'url|nullable',
+            'twitter' => 'url|nullable'
         ];
     }
 }

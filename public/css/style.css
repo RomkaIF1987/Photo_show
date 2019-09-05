@@ -11217,7 +11217,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-section .img-years .experience {
-    position: absolute;
+    position: relative;
     display: block;
     right: 0;
 }

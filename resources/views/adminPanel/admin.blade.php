@@ -17,6 +17,7 @@
                     <li><a href="#tab03"><span>Відгуки</span></a></li>
                     <li><a href="#tab04"><span>Питання</span></a></li>
                     <li><a href="#tab05"><span>Новини</span></a></li>
+                    <li><a href="#tab06"><span>Співробітники</span></a></li>
                 </ul>
             </div>
             <!-- /tabs -->
@@ -155,6 +156,34 @@
                             <td>
                                 <div>
                                     <a href="{{route('blog.edit', ['blog' => $blog->id])}}"
+                                       class="input-submit">Редагувати</a></div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+            <div id="tab06">
+                <table>
+                    <tr>
+                        <th>Ім'я</th>
+                        <th>Посада</th>
+                        <th>Фотографія</th>
+                        <th>Facebook</th>
+                        <th>Instagram</th>
+                        <th>Twitter</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach($employees as $employee)
+                        <tr>
+                            <td>{{$employee->name}}</td>
+                            <td>{{$employee->position}}</td>
+                            <td><img height="100px" src="storage/images/{{$employee->image}}"></td>
+                            <td>{{$employee->facebook}}</td>
+                            <td>{{$employee->instagram}}</td>
+                            <td>{{$employee->twitter}}</td>
+                            <td>
+                                <div>
+                                    <a href="{{route('employee.edit', ['employee' => $employee->id])}}"
                                        class="input-submit">Редагувати</a></div>
                             </td>
                         </tr>

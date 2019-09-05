@@ -84,8 +84,7 @@
                 <div class="testimony">
                     <img src="storage/images/{{$comment->image}}" alt="Image" class="img-fluid">
                     <h3>{{$comment->name}}</h3>
-                    <span class="sub-title">Owner of Building Co.</span>
-                    <p>&ldquo;<em>{{$comment->description}}</em>&rdquo;</p>
+                    <p>{!! $comment->description !!}</p>
                 </div>
             @endforeach
         </div>

@@ -24,8 +24,8 @@ class QuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required',
-            'answer' => 'required'
+            'body' => 'required|string',
+            'answer' => 'required|string'
         ];
     }
 }

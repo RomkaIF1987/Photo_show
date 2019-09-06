@@ -18,6 +18,7 @@
                     <li><a href="#tab04"><span>Питання</span></a></li>
                     <li><a href="#tab05"><span>Новини</span></a></li>
                     <li><a href="#tab06"><span>Співробітники</span></a></li>
+                    <li><a href="#tab07"><span>Послуги</span></a></li>
                 </ul>
             </div>
             <!-- /tabs -->
@@ -184,6 +185,25 @@
                             <td>
                                 <div>
                                     <a href="{{route('employee.edit', ['employee' => $employee->id])}}"
+                                       class="input-submit">Редагувати</a></div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+            <div id="tab07">
+                <table>
+                    <tr>
+                        <th>Назва послуги</th>
+                        <th>Опис послуги</th>
+                    </tr>
+                    @foreach($services as $service)
+                        <tr>
+                            <td>{{$service->name}}</td>
+                            <td>{{$service->description}}</td>
+                            <td>
+                                <div>
+                                    <a href="{{route('service.edit', ['service' => $service->id])}}"
                                        class="input-submit">Редагувати</a></div>
                             </td>
                         </tr>

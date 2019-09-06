@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/question', 'QuestionController');
     Route::resource('admin/blog', 'BlogController');
     Route::resource('admin/employee', 'EmployeeController');
+    Route::resource('admin/service', 'ServiceController');
+
 
 
     Route::get('/admin', 'AdminController@index')->name('admin.homePage');

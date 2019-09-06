@@ -97,7 +97,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="{{route('blog')}}">Новини</a></li>
-                                    <li><a href="{{route('services')}}">Сервіси</a></li>
+                                    <li><a href="{{route('services')}}">Послуги</a></li>
                                     <li><a href="{{route('contact')}}">Контакти</a></li>
                                 </ul>
                             </div>
@@ -123,7 +123,7 @@
                         <div class="col-md-6 col-lg-6">
                             <ul class="list-unstyled">
                                 <li><a href="{{route('home.page')}}">Головна</a></li>
-                                <li><a href="{{route('services')}}">Сервіси</a></li>
+                                <li><a href="{{route('services')}}">Послуги</a></li>
                                 <li><a href="{{route('blog')}}">Новини</a></li>
                                 <li><a href="{{route('about')}}">Команда</a></li>
                             </ul>

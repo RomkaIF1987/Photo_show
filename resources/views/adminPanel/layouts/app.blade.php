@@ -59,6 +59,8 @@
             <li><a href="{{route('question.create')}}"><span>Додати питання</span></a></li>
             <li><a href="{{route('blog.create')}}"><span>Додати новину</span></a></li>
             <li><a href="{{route('employee.create')}}"><span>Додати співробітника</span></a></li>
+            <li><a href="{{route('service.create')}}"><span>Додати послугу</span></a></li>
+
         </ul>
     </div>
 

@@ -8,6 +8,7 @@ use App\Comment;
 use App\Employee;
 use App\Photo;
 use App\Question;
+use App\Service;
 
 class AdminController extends Controller
 {
@@ -19,7 +20,8 @@ class AdminController extends Controller
             'comments' => Comment::all(),
             'questions' => Question::all(),
             'blogs' => Blog::all(),
-            'employees' => Employee::all()
+            'employees' => Employee::all(),
+            'services' => Service::all()
         ]);
     }
 

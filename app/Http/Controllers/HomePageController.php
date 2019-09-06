@@ -8,6 +8,7 @@ use App\Employee;
 use App\Photo;
 use App\Question;
 use App\Blog;
+use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 
@@ -72,6 +73,7 @@ class HomePageController extends Controller
         return view('services',[
             'albums' => Album::all(),
             'blogs' => Blog::paginate(3),
+            'services' => Service::all()
         ]);
     }
 

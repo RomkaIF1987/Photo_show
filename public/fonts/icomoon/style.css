@@ -6547,3 +6547,8 @@
 .icon-zoom_out_map:before {
     content: "\e56b";
 }
+
+.contact-inf {
+    background-color: whitesmoke;
+    border-radius: 10px;
+}

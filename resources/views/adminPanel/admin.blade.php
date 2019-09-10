@@ -40,7 +40,7 @@
                             <td><img width="100px" alt="Меблі" src="/storage/album_covers/{{$album->cover_image}}"></td>
                             <td>{{$album->created_at}}</td>
                             <td>{{$album->updated_at}}</td>
-                            <td style="display: flex">
+                            <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
                                     <a href="{{route('albums.edit', ['album' => $album->id])}}">
                                         <button style="margin-right: 5px">Редагувати</button>
@@ -77,10 +77,17 @@
                             <td>{{$photo->album->name}}</td>
                             <td>{{$photo->created_at}}</td>
                             <td>{{$photo->updated_at}}</td>
-                            <td>
+                            <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('photos.edit', ['photo' => $photo->id])}}"
-                                       class="input-submit">Редагувати</a></div>
+                                    <a href="{{route('photos.edit', ['$photo' => $photo->id])}}">
+                                        <button style="margin-right: 5px">Редагувати</button>
+                                    </a></div>
+                                <form action="{{route('photos.destroy', ['$photo' => $photo->id])}}"
+                                      method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Видалити</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -101,10 +108,17 @@
                             <td>{{$comment->name}}</td>
                             <td>{{$comment->description}}</td>
                             <td><img height="100px" src="storage/images/{{$comment->image}}"></td>
-                            <td>
+                            <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('comment.edit', ['comment' => $comment->id])}}"
-                                       class="input-submit">Редагувати</a></div>
+                                    <a href="{{route('comment.edit', ['$comment' => $comment->id])}}">
+                                        <button style="margin-right: 5px">Редагувати</button>
+                                    </a></div>
+                                <form action="{{route('question.destroy', ['$comment' => $comment->id])}}"
+                                      method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Видалити</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -123,7 +137,7 @@
                         <tr>
                             <td>{{$question->body}}</td>
                             <td>{{$question->answer}}</td>
-                            <td style="display: flex">
+                            <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
                                     <a href="{{route('question.edit', ['$question' => $question->id])}}">
                                         <button style="margin-right: 5px">Редагувати</button>
@@ -154,10 +168,17 @@
                             <td>{{$blog->title}}</td>
                             <td>{{$blog->body}}</td>
                             <td><img height="100px" src="storage/images/{{$blog->image}}"></td>
-                            <td>
+                            <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('blog.edit', ['blog' => $blog->id])}}"
-                                       class="input-submit">Редагувати</a></div>
+                                    <a href="{{route('blog.edit', ['$blog' => $blog->id])}}">
+                                        <button style="margin-right: 5px">Редагувати</button>
+                                    </a></div>
+                                <form action="{{route('blog.destroy', ['$blog' => $blog->id])}}"
+                                      method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Видалити</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -172,7 +193,7 @@
                         <th>Facebook</th>
                         <th>Instagram</th>
                         <th>Twitter</th>
-                        <th>Action</th>
+                        <th>Дії</th>
                     </tr>
                     @foreach($employees as $employee)
                         <tr>
@@ -182,10 +203,17 @@
                             <td>{{$employee->facebook}}</td>
                             <td>{{$employee->instagram}}</td>
                             <td>{{$employee->twitter}}</td>
-                            <td>
+                            <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('employee.edit', ['employee' => $employee->id])}}"
-                                       class="input-submit">Редагувати</a></div>
+                                    <a href="{{route('employee.edit', ['$employee' => $employee->id])}}">
+                                        <button style="margin-right: 5px">Редагувати</button>
+                                    </a></div>
+                                <form action="{{route('employee.destroy', ['$employee' => $employee->id])}}"
+                                      method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Видалити</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -196,15 +224,23 @@
                     <tr>
                         <th>Назва послуги</th>
                         <th>Опис послуги</th>
+                        <th>Дії</th>
                     </tr>
                     @foreach($services as $service)
                         <tr>
                             <td>{{$service->name}}</td>
                             <td>{{$service->description}}</td>
-                            <td>
+                            <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('service.edit', ['service' => $service->id])}}"
-                                       class="input-submit">Редагувати</a></div>
+                                    <a href="{{route('service.edit', ['$service' => $service->id])}}">
+                                        <button style="margin-right: 5px">Редагувати</button>
+                                    </a></div>
+                                <form action="{{route('service.destroy', ['$service' => $service->id])}}"
+                                      method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Видалити</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

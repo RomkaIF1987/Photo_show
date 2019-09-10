@@ -20,7 +20,7 @@ Route::get('/about', 'HomePageController@about')->name('about');
 Route::get('/blog', 'HomePageController@blog')->name('blog');
 Route::get('/services', 'HomePageController@services')->name('services');
 Route::get('/blog/{blog}', 'HomePageController@blogShow')->name('blogShow');
-
+Route::resource('contacts', 'ContactController');
 
 Auth::routes();
 

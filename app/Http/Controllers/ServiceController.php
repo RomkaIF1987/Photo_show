@@ -43,7 +43,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return view('employees.edit', [
+        return view('services.edit', [
             'service' => $service
         ]);
     }

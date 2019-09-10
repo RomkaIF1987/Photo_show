@@ -172,7 +172,8 @@
                                        placeholder="Введіть вашу пошту" aria-label="Enter Email"
                                        aria-describedby="button-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" id="button-addon2">Підписатися</button>
+                                    <button class="btn btn-primary" type="button" id="button-addon2">Підписатися
+                                    </button>
                                 </div>
                             </div>
                         </form>

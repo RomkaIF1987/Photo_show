@@ -1,11 +1,25 @@
-@extends('layouts.old_app')
+@extends('adminPanel.layouts.app')
 
 @section('content')
-    <h2 class="button">ДОДАТИ НОВУ ФОТОГРАФІЮ</h2>
-    <form action="{{route('photos.store')}}" method="POST" enctype='multipart/form-data' class="was-validated button">
-        @include('photos.partials.form')
+    <form action="{{route('photos.store')}}" method="POST" enctype='multipart/form-data'
+          class="was-validated button">
+    @csrf
+    <!-- /header -->
+        <hr class="noscreen"/>
+        <!-- Columns -->
+        <div id="cols" class="box">
+            <hr class="noscreen"/>
+            <!-- Content (Right Column) -->
+            <div id="content" class="box">
+                <!-- Form -->
+                <h3 class="tit">Додати фотографію</h3>
 
-        <input type="submit" class="btn btn-success btn-lg" value="Додати нову фотографію">
+                @include('photos.partials.photoForm')
+
+            </div>
+            <!-- /content -->
+        </div>
+        <!-- /cols -->
+        <hr class="noscreen"/>
     </form>
-
 @endsection

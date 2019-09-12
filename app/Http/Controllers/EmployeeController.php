@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Employee;
 use App\Http\Requests\EmployeeRequest;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\File;
+use Symfony\Component\HttpFoundation\Response;
 
 class EmployeeController extends Controller
 {
@@ -52,12 +55,7 @@ class EmployeeController extends Controller
         return redirect()->route('admin.homePage');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Employee $employee
-     * @return Response
-     */
+
     public function edit(Employee $employee)
     {
         return view('employees.edit', [
@@ -98,6 +96,20 @@ class EmployeeController extends Controller
         $employee->update($params);
 
         return redirect()->route('admin.homePage');
+    }
+
+    /**
+     * @param Employee $employee
+     * @return RedirectResponse
+     * @throws Exception
+     */
+    public function destroy(Employee $employee)
+    {
+        File::delete("storage/images/$employee->image");
+
+        $employee->delete();
+
+        return back();
     }
 
 }

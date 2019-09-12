@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Contact;
 use App\Http\Requests\ContactRequest;
 use App\Mail\MailShipped;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Mail;
 
 class ContactController extends Controller
@@ -13,7 +15,7 @@ class ContactController extends Controller
      * Store a newly created resource in storage.
      *
      * @param ContactRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function store(ContactRequest $request)
     {

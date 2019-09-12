@@ -14,16 +14,18 @@
         </div>
     </div>
 
-    <div class="container site-section block-13 testimonial-wrap">
+    <div class="container site-section block-13 justify-content-center">
         <div class="row no-gutters d-md-flex">
-            <div class="col-md-1">
+            <div class="col-md-2">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3 col-lg-3">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.801709721103!2d24.724003315134947!3d48.93821850303748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4730c1a17e9e8ebf%3A0xc4c6517ea7c353ae!2z0KXQhtCi0JAsINCh0J8g0KLQl9Ce0JI!5e0!3m2!1suk!2sua!4v1568111512982!5m2!1suk!2sua"
-                    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    width="100%" height="100%" frameborder="0" style="border:0; border-radius: 10px" allowfullscreen=""></iframe>
             </div>
-            <div class="col-md-3 text-lg-center ml-5 p-4 contact-inf">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-3 text-lg-center p-4 contact-inf">
 
                 <h3 class="my-4 pb-2">Контактна інформація</h3>
                 <p><i class="fas fa-map-marker-alt pr-2"><span class="icon-address-book"></span></i>вулиця Богдана

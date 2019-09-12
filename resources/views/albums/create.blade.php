@@ -1,11 +1,25 @@
-@extends('layouts.old_app')
+@extends('adminPanel.layouts.app')
 
 @section('content')
-    <h2 class="button">СТВОРИТИ НОВИЙ АЛЬБОМ</h2>
-    <form action="{{route('albums.store', $album->id)}}" method="POST" enctype='multipart/form-data' class="was-validated button">
-        @include('albums.partials.form')
+    <form action="{{route('albums.store', $album->id)}}" method="POST" enctype='multipart/form-data'
+          class="was-validated button">
+    @csrf
+    <!-- /header -->
+        <hr class="noscreen"/>
+        <!-- Columns -->
+        <div id="cols" class="box">
+            <hr class="noscreen"/>
+            <!-- Content (Right Column) -->
+            <div id="content" class="box">
+                <!-- Form -->
+                <h3 class="tit">Додати альбом</h3>
 
-        <input type="submit" class="btn btn-success btn-lg" value="Створити новий альбом">
+                @include('albums.partials.albumForm')
+
+            </div>
+            <!-- /content -->
+        </div>
+        <!-- /cols -->
+        <hr class="noscreen"/>
     </form>
-
 @endsection

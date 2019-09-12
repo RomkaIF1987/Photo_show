@@ -4,29 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use App\Photo;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\ValidationException;
 
 class PhotoController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('photos.index');
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
-        return view('adminPanel.photoCreate', [
+        return view('photos.create', [
             'albums' => Album::all(),
             'photo' => new Photo()
         ]);
@@ -35,9 +28,9 @@ class PhotoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
+     * @param Request $request
+     * @return Response
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
@@ -72,25 +65,14 @@ class PhotoController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return void
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param Photo $photo
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Photo $photo)
     {
-        return view('adminPanel.photoEdit', [
+        return view('photos.edit', [
             'photo' => $photo,
             'albums' => Album::all()
         ]);
@@ -99,10 +81,10 @@ class PhotoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param Request $request
      * @param Photo $photo
      * @return void
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws ValidationException
      */
     public function update(Request $request, Photo $photo)
     {
@@ -144,8 +126,8 @@ class PhotoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Photo $photo
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
+     * @return Response
+     * @throws Exception
      */
     public function destroy(Photo $photo)
     {

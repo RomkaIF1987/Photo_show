@@ -9,9 +9,14 @@ use App\Employee;
 use App\Photo;
 use App\Question;
 use App\Service;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 class AdminController extends Controller
 {
+    /**
+     * @return Factory|View
+     */
     public function index()
     {
         return view('adminPanel.admin', [

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ServiceRequest;
 use App\Service;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Http\Response;
 
 class ServiceController extends Controller
 {
@@ -62,5 +63,19 @@ class ServiceController extends Controller
         $service->update($params);
 
         return redirect()->route('admin.homePage');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Service $service
+     * @return Response
+     * @throws Exception
+     */
+    public function destroy(Service $service)
+    {
+        $service->delete();
+
+        return back();
     }
 }

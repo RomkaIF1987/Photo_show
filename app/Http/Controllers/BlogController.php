@@ -4,24 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Http\Requests\BlogRequest;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
 
 class BlogController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return void
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -33,8 +25,8 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param BlogRequest $request
+     * @return Response
      */
     public function store(BlogRequest $request)
     {
@@ -65,8 +57,8 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @param Blog $blog
+     * @return Response
      */
     public function edit(Blog $blog)
     {
@@ -78,9 +70,9 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @param BlogRequest $request
+     * @param Blog $blog
+     * @return Response
      */
     public function update(BlogRequest $request, Blog $blog)
     {
@@ -113,11 +105,16 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @param Blog $blog
+     * @return void
+     * @throws Exception
      */
     public function destroy(Blog $blog)
     {
-        //
+        File::delete("storage/images/$blog->image");
+
+        $blog->delete();
+
+        return redirect()->route('admin.homePage');
     }
 }

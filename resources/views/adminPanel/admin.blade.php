@@ -79,10 +79,10 @@
                             <td>{{$photo->updated_at}}</td>
                             <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('photos.edit', ['$photo' => $photo->id])}}">
+                                    <a href="{{route('photos.edit', ['photo' => $photo->id])}}">
                                         <button style="margin-right: 5px">Редагувати</button>
                                     </a></div>
-                                <form action="{{route('photos.destroy', ['$photo' => $photo->id])}}"
+                                <form action="{{route('photos.destroy', ['photo' => $photo->id])}}"
                                       method="POST">
                                     @csrf
                                     @method('delete')
@@ -110,10 +110,10 @@
                             <td><img height="100px" src="storage/images/{{$comment->image}}"></td>
                             <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('comment.edit', ['$comment' => $comment->id])}}">
+                                    <a href="{{route('comment.edit', ['comment' => $comment->id])}}">
                                         <button style="margin-right: 5px">Редагувати</button>
                                     </a></div>
-                                <form action="{{route('question.destroy', ['$comment' => $comment->id])}}"
+                                <form action="{{route('question.destroy', ['comment' => $comment->id])}}"
                                       method="POST">
                                     @csrf
                                     @method('delete')
@@ -139,10 +139,10 @@
                             <td>{{$question->answer}}</td>
                             <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('question.edit', ['$question' => $question->id])}}">
+                                    <a href="{{route('question.edit', ['question' => $question->id])}}">
                                         <button style="margin-right: 5px">Редагувати</button>
                                     </a></div>
-                                <form action="{{route('question.destroy', ['$question' => $question->id])}}"
+                                <form action="{{route('question.destroy', ['question' => $question->id])}}"
                                       method="POST">
                                     @csrf
                                     @method('delete')
@@ -170,10 +170,10 @@
                             <td><img height="100px" src="storage/images/{{$blog->image}}"></td>
                             <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('blog.edit', ['$blog' => $blog->id])}}">
+                                    <a href="{{route('blog.edit', ['blog' => $blog->id])}}">
                                         <button style="margin-right: 5px">Редагувати</button>
                                     </a></div>
-                                <form action="{{route('blog.destroy', ['$blog' => $blog->id])}}"
+                                <form action="{{route('blog.destroy', ['blog' => $blog->id])}}"
                                       method="POST">
                                     @csrf
                                     @method('delete')
@@ -205,10 +205,10 @@
                             <td>{{$employee->twitter}}</td>
                             <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('employee.edit', ['$employee' => $employee->id])}}">
+                                    <a href="{{route('employee.edit', ['employee' => $employee->id])}}">
                                         <button style="margin-right: 5px">Редагувати</button>
                                     </a></div>
-                                <form action="{{route('employee.destroy', ['$employee' => $employee->id])}}"
+                                <form action="{{route('employee.destroy', ['employee' => $employee->id])}}"
                                       method="POST">
                                     @csrf
                                     @method('delete')
@@ -232,10 +232,10 @@
                             <td>{{$service->description}}</td>
                             <td style="display: flex; border-top: none; border-left: none; border-right: none">
                                 <div>
-                                    <a href="{{route('service.edit', ['$service' => $service->id])}}">
+                                    <a href="{{route('service.edit', ['service' => $service->id])}}">
                                         <button style="margin-right: 5px">Редагувати</button>
                                     </a></div>
-                                <form action="{{route('service.destroy', ['$service' => $service->id])}}"
+                                <form action="{{route('service.destroy', ['service' => $service->id])}}"
                                       method="POST">
                                     @csrf
                                     @method('delete')

@@ -1,13 +1,27 @@
-@extends('layouts.old_app')
+@extends('adminPanel.layouts.app')
 
 @section('content')
-    <h2>Edit ALBUM - {{$album->name}}</h2>
-    <form action="{{route('albums.update', $album->id)}}" method="POST" enctype='multipart/form-data'>
-        @method('PATCH')
-        @include('albums.partials.form')
+    <form action="{{route('albums.update', $album->id)}}" method="POST" enctype='multipart/form-data'
+          class="was-validated button">
+    @csrf
+    <!-- /header -->
+        <hr class="noscreen"/>
+        <!-- Columns -->
+        <div id="cols" class="box">
+            <hr class="noscreen"/>
+            <!-- Content (Right Column) -->
+            <div id="content" class="box">
+                <!-- Form -->
+                <h3 class="tit">Редагувати альбом</h3>
 
+                @method('PATCH')
 
-        <input type="submit" class="btn btn-success btn-lg" value="Edit album">
+                @include('albums.partials.albumForm')
+
+            </div>
+            <!-- /content -->
+        </div>
+        <!-- /cols -->
+        <hr class="noscreen"/>
     </form>
-
 @endsection

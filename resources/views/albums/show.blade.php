@@ -1,4 +1,4 @@
-@extends('layouts.old_app')
+@extends('layouts.app')
 
 @section('content')
     <h1 class="text-center text-uppercase button font-weight-bolder">{{$album->name}}</h1>

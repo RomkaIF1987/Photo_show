@@ -1,4 +1,4 @@
-@extends('layouts.old_app')
+@extends('layouts.app')
 @section('content')
     <main role="main">
         @auth

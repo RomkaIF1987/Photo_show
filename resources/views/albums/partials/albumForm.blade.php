@@ -55,14 +55,16 @@
             <td style="width:170px;"><label for="exampleInputName">Іконка</label></td>
             <td>
                 <div class="form-group">
-                    <input type="text"
-                           class="form-control {{$errors->has('icon_image') ? 'is-invalid' : ''}}"
-                           name="name"
-                           id="name"
-                           aria-describedby="icon_image"
-                           placeholder="Введіть назву альбому"
-                           value="{{old('icon_image') ?? $album->icon_image}}"
-                           required>
+                    <label for="icon_image"><select type="text"
+                                                    class="form-control {{$errors->has('icon_image') ? 'is-invalid' : ''}}"
+                                                    name="icon_image"
+                                                    id="icon_image"
+                                                    required>
+                            <option value="flaticon-cupboard">Меблі</option>
+                            <option value="flaticon-door">Двері</option>
+                            <option value="flaticon-window">Інше</option>
+                        </select>
+                    </label>
                     @if($errors->has('icon_image'))
                         <div class="invalid-feedback">
                             {{$errors->get('icon_image')[0]}}

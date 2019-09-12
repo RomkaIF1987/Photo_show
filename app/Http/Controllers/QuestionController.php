@@ -4,38 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\QuestionRequest;
 use App\Question;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Http\Response;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return void
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @param Question $question
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function create(Question $question)
+    public function create()
     {
         return view('questions.create', [
-            'question' => $question
+            'question' => new Question()
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param QuestionRequest $request
+     * @return Response
      */
     public function store(QuestionRequest $request)
     {
@@ -47,47 +38,46 @@ class QuestionController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Question $question
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Question $question)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Question $question
-     * @return \Illuminate\Http\Response
+     * @param Question $question
+     * @return Response
+     * @throws Exception
      */
     public function edit(Question $question)
     {
-        //
+        return view('questions.edit', [
+            'question' => $question
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Question $question
-     * @return \Illuminate\Http\Response
+     * @param QuestionRequest $request
+     * @param Question $question
+     * @return void
      */
-    public function update(Request $request, Question $question)
+    public function update(QuestionRequest $request, Question $question)
     {
-        //
+        $params = $request->validated();
+
+        $question->update($params);
+
+        return redirect()->route('admin.homePage');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Question $question
-     * @return \Illuminate\Http\Response
+     * @param Question $question
+     * @return Response
+     * @throws Exception
      */
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+
+        return back();
     }
 }

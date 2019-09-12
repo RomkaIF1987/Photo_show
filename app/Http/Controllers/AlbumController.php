@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Album;
+use App\Http\Requests\AlbumRequest;
 use App\Photo;
-use Illuminate\Http\Request;
+use Exception;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
 class AlbumController extends Controller
@@ -14,7 +14,7 @@ class AlbumController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -26,11 +26,11 @@ class AlbumController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
-        return view('adminPanel.albumCreate', [
+        return view('albums.create', [
             'album' => new Album()
         ]);
     }
@@ -38,18 +38,13 @@ class AlbumController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
+     * @param AlbumRequest $request
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(AlbumRequest $request)
     {
-        $params = $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
-            'cover_image' => 'image|max:1999',
-            'icon_image' => 'image|max:1999'
-        ]);
+        $params = $request->validated();
+
         // get file name with Extension
         $imageFileNameWithExt = $request->file('cover_image')->getClientOriginalName();
 
@@ -68,7 +63,7 @@ class AlbumController extends Controller
         $params['cover_image'] = $fileNameToStore;
 
         // create new Album
-        $album = Album::create($params);
+        Album::create($params);
 
         return redirect()->route('admin.homePage');
     }
@@ -77,10 +72,9 @@ class AlbumController extends Controller
      * Display the specified resource.
      *
      * @param Album $album
-     * @param Photo $photo
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show(Album $album, Photo $photo)
+    public function show(Album $album)
     {
         return view('albums.show', [
             'album' => $album,
@@ -92,11 +86,11 @@ class AlbumController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Album $album
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Album $album)
     {
-        return view('adminPanel.albumEdit', [
+        return view('albums.edit', [
             'album' => $album
         ]);
     }
@@ -104,18 +98,13 @@ class AlbumController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param AlbumRequest $request
      * @param Album $album
-     * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
+     * @return Response
      */
-    public function update(Request $request, Album $album)
+    public function update(AlbumRequest $request, Album $album)
     {
-        $params = $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
-            'cover_image' => 'image|max:1999'
-        ]);
+        $params = $request->validated();
 
         if ($request->hasFile('cover_image')) {
 
@@ -134,12 +123,11 @@ class AlbumController extends Controller
             $fileNameToStore = $imageFileName . '_' . time() . '.' . $extension;
 
             //upload image
-            $path = $request->file('cover_image')->storeAs('public/album_covers', $fileNameToStore);
+            $request->file('cover_image')->storeAs('public/album_covers', $fileNameToStore);
 
             // Update Album
 
             $params['cover_image'] = $fileNameToStore;
-
 
         }
 
@@ -152,13 +140,15 @@ class AlbumController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Album $album
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
+     * @return Response
+     * @throws Exception
      */
     public function destroy(Album $album)
     {
+        File::delete("storage/album_covers/$album->cover_image");
+
         $album->delete();
 
-        return redirect()->route('albums.index');
+        return redirect()->route('admin.homePage');
     }
 }

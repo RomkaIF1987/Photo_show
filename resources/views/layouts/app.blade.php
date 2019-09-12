@@ -18,9 +18,8 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="/css/aos.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link href="/css/lightbox.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/lightbox.css">
     <link rel="stylesheet" href="/css/cocoen.min.css">
-
 
 </head>
 <body>
@@ -87,7 +86,7 @@
                                     </li>
                                     <li><a href="{{route('about')}}">Про нас</a></li>
                                     <li class="has-children">
-                                        <a href="projects.blade.php">Проекти</a>
+                                        <a href="{{route('home.page')}}#albums">Проекти</a>
                                         <ul class="dropdown arrow-top">
                                             @foreach($albums as $album)
                                                 <li>
